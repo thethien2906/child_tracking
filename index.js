@@ -1,11 +1,13 @@
-
 const express = require("express");
 require("dotenv").config(); 
 const connectDB = require("./config/db");
 const applyMiddleware = require("./middleware");
 const routes = require("./routes/_registerRoutes.js");
+const cors = require('cors');
 const app = express();
 
+// Enable CORS
+app.use(cors());
 
 // Apply middleware
 applyMiddleware(app);
@@ -15,7 +17,7 @@ app.use(routes);
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Hello from Node API Server lmao");
+  res.send("Who read this is gay and we accept you");
 });
 
 // Connect to database and start server
